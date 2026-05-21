@@ -20,5 +20,11 @@ pipeline {
                 bat "mvn sonar:sonar -f DemoIC -Dsonar.token=squ_3b44443669924d1f455d6a358434eb167d62e7b0"
             }
         }
+        post {
+            failure {
+                emailext body: 'Le Build $BUILD_NUMBER a échoué',
+                subject: 'Build Jenkins échoué',
+                to: 'ton_email@gmail.com'
+        }
     }
 }
