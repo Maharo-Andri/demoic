@@ -24,7 +24,8 @@ pipeline {
             failure {
                 emailext body: 'Le Build $BUILD_NUMBER a échoué',
                 subject: 'Build Jenkins échoué',
-                to: 'ton_email@gmail.com'
+                to: 'mhrmaharo@gmail.com'
+            }
         }
     }
 }
