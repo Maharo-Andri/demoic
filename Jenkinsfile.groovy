@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Docker Build & Push') {
             steps {
-                bat "docker build -t maharoandri/demoic:latest ."
+                bat "docker build -t maharoandri/demoic:latest -f Dockerfile ."
                 bat "docker login -u maharoandri -p docker_010203"
                 bat "docker push maharoandri/demoic:latest"
             }
