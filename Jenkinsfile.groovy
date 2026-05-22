@@ -4,7 +4,7 @@ pipeline {
         stage('clone and clean repo') {
             steps {
                 bat "if exist demoic rmdir /s /q demoic"
-                bat "git clone https://github.com/heritsilavo/demoic"
+                bat "git clone https://github.com/Maharo-Andri/demoic"
                 bat "mvn clean -f DemoIC"
             }
         }
