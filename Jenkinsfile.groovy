@@ -30,8 +30,8 @@ pipeline {
     }
     post {
             failure {
-                emailext body: 'Le Build $BUILD_NUMBER a \échou\é',
-                subject: 'Build Jenkins \échou\é',
+                emailext body: 'Le Build $BUILD_NUMBER a echouer',
+                subject: 'Build Jenkins echouer',
                 to: 'mhrmaharo@gmail.com'
             }
         }
