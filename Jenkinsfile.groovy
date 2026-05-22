@@ -20,9 +20,10 @@ pipeline {
                 bat "mvn sonar:sonar -f DemoIC -Dsonar.token=squ_3b44443669924d1f455d6a358434eb167d62e7b0"
             }
         }
-        stage('Docker Build & Push') {
+       stage('Docker Build & Push') {
             steps {
-                bat "docker build -t maharoandri/demoic:latest -f Dockerfile ."
+                bat "copy DemoIC\\target\\DemoIC-0.0.1-SNAPSHOT.jar demoic\\DemoIC-0.0.1-SNAPSHOT.jar"
+                bat "docker build -t maharoandri/demoic:latest -f demoic\\Dockerfile demoic\\"
                 bat "docker login -u maharoandri -p docker_010203"
                 bat "docker push maharoandri/demoic:latest"
             }
