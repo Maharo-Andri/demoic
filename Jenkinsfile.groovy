@@ -22,16 +22,16 @@ pipeline {
         }
         stage('Docker Build & Push') {
             steps {
-                bat "docker build -t TON_USERNAME/demoic:latest ."
-                bat "docker login -u TON_USERNAME -p TON_MOT_DE_PASSE"
-                bat "docker push TON_USERNAME/demoic:latest"
+                bat "docker build -t maharoandri/demoic:latest ."
+                bat "docker login -u maharoandri -p docker_010203"
+                bat "docker push maharoandri/demoic:latest"
             }
         }
     }
     post {
             failure {
-                emailext body: 'Le Build $BUILD_NUMBER a échoué',
-                subject: 'Build Jenkins échoué',
+                emailext body: 'Le Build $BUILD_NUMBER a \échou\é',
+                subject: 'Build Jenkins \échou\é',
                 to: 'mhrmaharo@gmail.com'
             }
         }
