@@ -20,6 +20,13 @@ pipeline {
                 bat "mvn sonar:sonar -f DemoIC -Dsonar.token=squ_3b44443669924d1f455d6a358434eb167d62e7b0"
             }
         }
+        stage('Docker Build & Push') {
+            steps {
+                bat "docker build -t TON_USERNAME/demoic:latest ."
+                bat "docker login -u TON_USERNAME -p TON_MOT_DE_PASSE"
+                bat "docker push TON_USERNAME/demoic:latest"
+            }
+        }
     }
     post {
             failure {
