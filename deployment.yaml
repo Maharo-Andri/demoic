@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoic
+  labels:
+    app: demoic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demoic
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: demoic
+    spec:
+      containers:
+        - name: demoic
+          image: maharoandri/demoic:latest
+          ports:
+            - containerPort: 8080

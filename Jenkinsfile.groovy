@@ -28,6 +28,12 @@ pipeline {
                 bat "docker push maharoandri/demoic:latest"
             }
         }
+        stage('Deploy Kubernetes') {
+            steps {
+                bat "kubectl apply -f demoic\\deployment.yaml"
+                bat "kubectl apply -f demoic\\service.yaml"
+            }
+        }
     }
     post {
             failure {
